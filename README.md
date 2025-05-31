@@ -37,27 +37,48 @@ pip install -r requirements.txt
 
 ## 🚀 How to Run
 
+Create the models folder first if you haven't.
+
 ### Train models
 ```bash
-python src/train.py --config experiments/config.yaml
+python src/train.py --config experiments/lstm_config.yaml
+python src/train.py --config experiments/nlinear_config.yaml
+python src/train.py --config experiments/dlinear_config.yaml
+python src/train.py --config experiments/nhits_config.yaml
+python src/train.py --config experiments/nbeats_config.yaml
+python src/train.py --config experiments/tft_config.yaml
+python src/train.py --config experiments/tsmixer_config.yaml
 ```
+If you cannot train the models, you can download the pre-trained models here (3.18 GB): https://drive.google.com/file/d/1I3CY1sfkoOdHgKDYbJLbW8IENqc3kwUh/view?usp=sharing
 
-### Evaluate metrics (MAE, sMAPE, DTW for Figure 5)
+### Evaluate metrics (MAE, sMAPE, DTW for Figure 4)
 ```bash
-python src/evaluate.py --config experiments/config.yaml
+python src/evaluate_mae_smape_dtw_pre.py
 ```
+The `pre` suffix in the script indicates the pre-run values stored as a dictionary. If you're more interested in generating your own values, you can use the similar script with the `fresh` suffix.
 
-### Measure training and inference time (Figure 4)
+It will output three images: mae.png, smape.png, and dtw.png.
+
+### Measure training and inference time (Figure 9a and 9b)
 ```bash
-python src/evaluate.py --time-benchmark
+python src/evaluate_time.py
+```
+This was done manually, in the code to generate `eval_list`, we use 
+
+```python
+start_time = time.time()  # Start time
+...
+...
+end_time = time.time()    # End time
+print(f"Time taken: {end_time - start_time:.6f} seconds")
 ```
 
-### Detect stability points and delay (Figure 7)
+### Detect stability points and delay (Figure 6)
 ```bash
 python src/detect_stability.py
 ```
 
-### Analyze forecast variance (Figure 8)
+### Analyze forecast variance (Figure 7)
 ```bash
 python src/analyze_variance.py
 ```
@@ -71,12 +92,12 @@ python src/plot_figures.py
 
 | **Result**                      | **Script**                  | **Figure**  |
 |---------------------------------|-----------------------------|-------------|
-| Model performance metrics       | `evaluate.py`               | Figure 5    |
-| Inference and training time     | `evaluate.py --time-benchmark` | Figure 4    |
-| Stability detection alignment   | `detect_stability.py`       | Figure 7    |
-| Forecast variance and std dev   | `analyze_variance.py`       | Figure 8    |
-| Forecast visualizations         | `plot_figures.py`           | Figures 3, 6, 10, 11 |
-| Domain-specific anomaly (E1)    | `plot_figures.py`           | Figure 12   |
+| Model performance metrics       | `evaluate_mae_smape_dtw_pre.py`               | Figure 4    |
+| Inference and training time     | `evaluate_time.py` | Figures 9a and 9b    |
+| Stability detection alignment   | `detect_stability.py`       | Figure 6    |
+| Forecast variance and std dev   | `analyze_variance.py`       | Figure 7    |
+| Forecast visualizations         | `plot_figures.py`           | Figures 3, 5, 9c, 10 |
+| Domain-specific anomaly (E1)    | `plot_figures.py`           | Figure 11   |
 
 ## 📄 License
 

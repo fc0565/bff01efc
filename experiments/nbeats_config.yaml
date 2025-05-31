@@ -1,0 +1,26 @@
+experiment_name: nbeats_experiment
+seed: 42
+
+data:
+  zip_path: data/slopes.zip
+  scale: true
+  smooth: false          # overridden by loop in train.py
+  smooth_poly: 3
+  force_float32: true
+
+model:
+  type: NBEATS
+  input_chunk_length: 36
+  output_chunk_length: 460
+  n_epochs: 70
+  batch_size: 64
+  dropout: 0.018700321227017813
+  num_blocks: 4
+  hidden_layer_units: 160
+  random_state: 42
+
+training:
+  train_series_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                       10, 11, 12, 13, 14, 15, 16, 17,
+                       18, 19, 20, 21, 22, 23, 24]
+

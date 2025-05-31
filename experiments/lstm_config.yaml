@@ -1,0 +1,24 @@
+experiment_name: lstm_experiment
+seed: 42
+
+data:
+  zip_path: data/slopes.zip
+  scale: true
+  smooth: false
+  smooth_window: 250
+  smooth_poly: 3
+
+model:
+  type: LSTM
+  input_chunk_length: 36
+  training_length: 467
+  n_epochs: 38
+  batch_size: 64
+  dropout: 0.1072
+  random_state: 42
+
+training:
+  train_series_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                       11, 12, 13, 14, 15, 16, 17, 18, 19,
+                       20, 21, 22, 23, 24]
+
