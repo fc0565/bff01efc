@@ -80,7 +80,9 @@ python src/detect_stability.py
 
 ### Analyze forecast variance (Figure 7)
 ```bash
-python src/analyze_variance.py
+python src/analyze_rmse.py
+python src/analyze_std_dev.py
+python src/analyze_variance_moving_prediction.py
 ```
 
 ### Reproduce all figures from the paper
@@ -95,7 +97,9 @@ python src/plot_figures.py
 | Model performance metrics       | `evaluate_mae_smape_dtw_pre.py`               | Figure 4    |
 | Inference and training time     | `evaluate_time.py` | Figures 9a and 9b    |
 | Stability detection alignment   | `detect_stability.py`       | Figure 6    |
-| Forecast variance and std dev   | `analyze_variance.py`       | Figure 7    |
+| Forecast RMSE   | `analyze_rmse.py`       | Figure 7a    |
+| Forecast std dev   | `analyze_std_dev.py`       | Figure 7b    |
+| Forecast variance   | `analyze_variance_moving_prediction.py`       | Figure 7c    |
 | Forecast visualizations         | `plot_figures.py`           | Figures 3, 5, 9c, 10 |
 | Domain-specific anomaly (E1)    | `plot_figures.py`           | Figure 11   |
 
