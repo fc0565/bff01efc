@@ -10,15 +10,14 @@ This repository provides code and configuration to reproduce the main results fr
 │   ├── models/              # Model definitions: LSTM, N-BEATS, TFT, etc.
 │   ├── utils/               # Utility functions (filtering, metrics, plotting)
 │   ├── train.py             # Train models using config
-│   ├── evaluate.py          # Evaluate models, compute MAE/sMAPE/DTW
+│   ├── evaluate_*.py        # Evaluate models, compute MAE/sMAPE/DTW
 │   ├── detect_stability.py  # Detect stability point Xc from time series
-│   ├── analyze_variance.py  # Analyze prediction variance across runs
+│   ├── analyze_*.py         # Analyze prediction variance across runs
 │   └── plot_figures.py      # Generate plots for all paper figures
 ├── experiments/
-│   ├── config.yaml          # Model hyperparameters and run settings
-│   └── run_all.sh           # Shell script to execute all experiments
+│   └── {model}_config.yaml  # Model hyperparameters and run settings
+│
 ├── data/                    # Folder for input datasets or data download link
-├── outputs/                 # Folder to store figures, logs, and model outputs
 └── requirements.txt         # Python package dependencies
 ```
 
@@ -100,8 +99,7 @@ python src/plot_figures.py
 | Forecast RMSE   | `analyze_rmse.py`       | Figure 7a    |
 | Forecast std dev   | `analyze_std_dev.py`       | Figure 7b    |
 | Forecast variance   | `analyze_variance_moving_prediction.py`       | Figure 7c    |
-| Forecast visualizations         | `plot_figures.py`           | Figures 3, 5, 9c, 10 |
-| Domain-specific anomaly (E1)    | `plot_figures.py`           | Figure 11   |
+| Forecast visualizations         | `plot_figures.py`           | Figures 3, 5, 8, 10 |
 
 ## 📄 License
 
